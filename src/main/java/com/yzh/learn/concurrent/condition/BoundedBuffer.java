@@ -1,9 +1,14 @@
-package com.yzh.learn.concurrent.test01;
+package com.yzh.learn.concurrent.condition;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 链接：https://segmentfault.com/a/1190000015562196
+ * 假定有一个缓冲队列，支持put和take方法。如果试图在空队列中执行take操作，则线程将一直阻塞，直到队列中有可用元素；
+ * 如果试图在满队列上执行put操作，则线程也将一直阻塞，直到队列不满。
+ */
 public class BoundedBuffer {
     final Lock lock = new ReentrantLock();
     final Condition notFull = lock.newCondition();

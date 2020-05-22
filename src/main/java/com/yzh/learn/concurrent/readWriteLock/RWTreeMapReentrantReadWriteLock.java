@@ -1,4 +1,4 @@
-package com.yzh.learn.concurrent.test01;
+package com.yzh.learn.concurrent.readWriteLock;
 
 import javax.xml.crypto.Data;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 使用ReentrantReadWriteLock控制对TreeMap的访问（利用读锁控制读操作的访问，利用写锁控制修改操作的访问），
  * 将TreeMap包装成一个线程安全的集合，并且利用了读写锁的特性来提高并发访问。
  */
-public class RWTreeMap {
+public class RWTreeMapReentrantReadWriteLock {
     private final Map<String, Data> m = new TreeMap<>();
     private final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
     private final Lock r = rwl.readLock();
